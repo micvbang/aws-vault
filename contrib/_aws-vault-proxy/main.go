@@ -35,5 +35,6 @@ func main() {
 		addAuthorizationHeader(authToken,
 			httputil.NewSingleHostReverseProxy(target)))
 
-	_ = http.ListenAndServe(":80", handler)
+	err := http.ListenAndServe("169.254.170.2:80", handler)
+	log.Fatalf("http.ListenAndServe failed: %s", err)
 }
